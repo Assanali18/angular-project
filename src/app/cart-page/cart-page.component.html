@@ -1,0 +1,25 @@
+<div class = "container" *ngIf = "cartProducts.length > 0; else empty">
+    <h2 class = "text-center"> Your order</h2>
+
+    <table>
+        <tbody>
+            <tr *ngFor = "let cartProduct of cartProducts">
+                <td>{{cartProduct.type}}</td>
+                <td>{{cartProduct.title}}</td>
+                <td>
+                    <button class = "btn btn-danger" (click) = "removeProduct(cartProduct)">Delete</button>
+                </td>
+                <td>{{cartProduct.price}}₸</td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+    <b class = "right">Total: {{totalPrice | number}}₸</b>
+    
+</div>
+
+<ng-template #empty>
+    <div class="container">
+        <h2 class = "text-center">Cart is empty, select product</h2>
+    </div>
+</ng-template>

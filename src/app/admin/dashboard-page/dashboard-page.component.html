@@ -1,0 +1,38 @@
+<div *ngIf = "products.length; else loading">
+    <h2 class = "text-center">Dashboard of products</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Likes</th>
+                <th>Date of creation</th>
+                <th>Open</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let product of products; let idx = index">
+                <td>{{ idx + 1 }}</td>
+                <td>{{ product.title}}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.like }}</td>
+                <td>{{ product.date | date: 'short' }}</td>
+                <td>
+                    <a [routerLink]="['/admin','product', product.id, 'edit' ]" class = "btn btn-dark">Open</a>
+
+                </td>
+                <td>
+                    <button class = "btn btn-danger" (click) = "removeItem(product.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<ng-template #loading>
+    <p class = "text-center">Loading...</p>
+</ng-template>

@@ -1,0 +1,27 @@
+<header>
+    <nav class = "navbar bg-dark">
+        <div class="store-logo">
+            <a [href]="['/']"><img src="../../../assets/logo.svg" alt="logo"></a>
+        </div>
+        <ul>
+            <li routerLinkActive="active">
+                <a (click) = "setType('Phone')">Phone</a>
+            </li>
+            <li routerLinkActive="active">
+                <a  (click) = "setType('Tablet')">Tablet</a>
+            </li>
+            <li routerLinkActive="active">
+                <a  (click) = "setType('Laptop')">Laptop</a>
+            </li>
+            <li routerLinkActive="active">
+                <a  (click) = "setType('Watch')">Watch</a>
+            </li>
+            <li routerLinkActive="active">
+                <a  (click) = "setType('Cart')" [routerLink]="['/cart']">Cart</a>
+                <span>{{cartSize}}</span>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<div class="container"><router-outlet></router-outlet></div>

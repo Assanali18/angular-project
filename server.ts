@@ -14,6 +14,9 @@ export function app(): express.Express {
 
   const commonEngine = new CommonEngine();
 
+  const dotenv = require('dotenv');
+  dotenv.config();
+
   server.set('view engine', 'html');
   server.set('views', browserDistFolder);
 
