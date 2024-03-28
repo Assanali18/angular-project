@@ -44,7 +44,7 @@ Thumbs.db
 node_modules/
 
 .env
-src/environment/
+environments/
 assets/
 
 quill.snow.css
