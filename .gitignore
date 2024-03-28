@@ -44,6 +44,8 @@ Thumbs.db
 node_modules/
 
 .env
+environment/
+assets/
 
-quillsnowcsscss
-swiper-bundle
+quill.snow.css
+swiper-bundle.min.css
