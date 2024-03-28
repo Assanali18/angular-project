@@ -1,0 +1,53 @@
+<div class  = "product_wrapper">
+
+    <div class = "product_img">
+        <quill-view-html [content] = "product.photo" class = "photo"></quill-view-html>
+    </div>
+
+    <div class="product_info">
+        <div class = "product_title">
+            <a [href] = "product.link" target="_blank">
+                <h2>{{ product.title }}</h2>
+            </a>
+        </div>
+        <div class = "product_content">
+            <div class="product_description">
+                <quill-view-html [content] = "product.description"></quill-view-html>
+            </div>
+    
+            <div class = "product_likes">
+                <img *ngIf="!liked; else likedIcon" src="../../assets/heart.png" alt="like" class = "trans-like" (click)="toggleHeart()">
+                <ng-template #likedIcon>
+                    <img src="../../assets/red-heart.png" alt="like" class = "red-like" (click)="toggleHeart()">
+                </ng-template>
+                <span>{{product.like}}</span>
+            </div>
+        </div>
+       
+        
+        <div class="product_interface">
+    
+            <p>Price: <br>
+                {{ product.price }}₸</p>
+
+            <div class = "product_rating">
+                <img src="../../assets/stars.png" alt="rating">
+            </div>
+            
+            
+            <div class="buttons">
+                <div class="btn-share">
+                    <button class = "btn btn-dark" [routerLink]="['/product', product.id]">Open</button>
+                </div>
+                <div class="btn-cart">
+                    <button class = "btn btn-danger"(click) ="addProduct(product)">Add to cart</button>
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+
+    
+</div>
+
